@@ -5590,7 +5590,7 @@ static void getStrValue(uint8_t type, void* pointer, uint8_t showLength, boolean
 			if (responseType) responseType = F("boolean");
 			break;
 		case DEBUG_TYPE_CHAR:
-			response = '\'';
+			response = "\'";
 			response.concat(String(*(char*)pointer));
 			response.concat('\'');
 			if (responseType) responseType = F("char");
@@ -5677,9 +5677,9 @@ static void getStrValue(uint8_t type, void* pointer, uint8_t showLength, boolean
 					show = show.substring(0, showLength);
 					show.concat(F("..."));
 				}
-				response = '\"';
+				response = "\"";
 				response.concat(show);
-				response.concat('\"');
+				response.concat("\"");
 				if (showSize) {
 					response.concat(F(" (size:"));
 					response.concat(size);
@@ -5699,9 +5699,9 @@ static void getStrValue(uint8_t type, void* pointer, uint8_t showLength, boolean
 					show = show.substring(0, showLength);
 					show.concat(F("..."));
 				}
-				response = '\"';
+				response = "\"";
 				response.concat(show);
-				response.concat('\"');
+				response.concat("\"");
 				if (showSize) {
 					response.concat(F(" (size:"));
 					response.concat(size);
@@ -7278,7 +7278,7 @@ static void removeQuotation(String& string, boolean single) {
 	if (single) {
 
 		if (string.length() == 3) {
-			string = string.charAt(1);
+			string = "" + string.charAt(1);
 		}
 
 	} else {
